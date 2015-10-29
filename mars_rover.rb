@@ -1,9 +1,10 @@
 class Rover
-	attr_accessor :pos_x, :pos_y, :dir
-	def initialize(pos_x, pos_y, dir)
+	attr_accessor :pos_x, :pos_y, :dir, :name
+	def initialize(pos_x, pos_y, dir, name)
 		@pos_x = pos_x
 		@pos_y = pos_y
 		@dir = dir
+		@name = name
 
 	end
 
@@ -73,8 +74,16 @@ class Rover
 
 	end
 
+	def print_pos
+		puts "#{@name} is at (#{@pos_x}, #{@pos_y}), facing #{@dir}"
+	end
 end
 
 
-rover1 = Rover.new(1,2,"N")
-
+rover1 = Rover.new(1,2,"N", "Johnny")
+rover1.read_instruction("L")
+rover1.print_pos
+rover2 = Rover.new(5,7,"W", "Mephisto")
+rover2.print_pos
+rover3 =  Rover.new(6,3, "S", "Mufasa's son, Simba")
+rover3.print_pos
